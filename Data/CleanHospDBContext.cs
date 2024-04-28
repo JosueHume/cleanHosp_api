@@ -18,7 +18,7 @@ namespace CleanHosp_API.Data
 {
     public class CleanHospDBContext : DbContext
     {
-        protected CleanHospDBContext(DbContextOptions<CleanHospDBContext> options
+        public CleanHospDBContext(DbContextOptions<CleanHospDBContext> options
             ) : base(options)
         {
         }

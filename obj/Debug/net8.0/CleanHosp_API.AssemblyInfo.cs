@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CleanHosp_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+731e0ca8d505457efc16f2199338d2abf31f3684")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bd49b58a9ed85c1ab52f7311a9387da00752501")]
 [assembly: System.Reflection.AssemblyProductAttribute("CleanHosp_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CleanHosp_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

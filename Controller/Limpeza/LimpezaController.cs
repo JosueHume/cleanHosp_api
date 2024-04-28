@@ -1,6 +1,4 @@
-﻿using CleanHosp_API.Model.Equipamento;
-using CleanHosp_API.Model.Limpeza;
-using CleanHosp_API.Repositorio.Interface.Equipamento;
+﻿using CleanHosp_API.Model.Limpeza;
 using CleanHosp_API.Repositorio.Interface.Limpeza;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
