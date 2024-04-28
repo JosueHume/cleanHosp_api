@@ -1,0 +1,6 @@
+@CleanHosp_API_HostAddress = http://localhost:5121
+
+GET {{CleanHosp_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
