@@ -1,5 +1,4 @@
-﻿using CleanHosp_API.Data.Mapeamento.Ala;
-using CleanHosp_API.Model.Equipamento;
+﻿using CleanHosp_API.Model.Equipamento;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -1,4 +1,11 @@
-﻿using CleanHosp_API.Model.Ala;
+﻿using CleanHosp_API.Data.Mapeamento.Ala;
+using CleanHosp_API.Data.Mapeamento.Equipamento;
+using CleanHosp_API.Data.Mapeamento.Limpeza;
+using CleanHosp_API.Data.Mapeamento.Local;
+using CleanHosp_API.Data.Mapeamento.LocalLimpeza;
+using CleanHosp_API.Data.Mapeamento.Pessoa;
+using CleanHosp_API.Data.Mapeamento.Produto;
+using CleanHosp_API.Model.Ala;
 using CleanHosp_API.Model.Equipamento;
 using CleanHosp_API.Model.Limpeza;
 using CleanHosp_API.Model.Local;
@@ -28,8 +35,16 @@ namespace CleanHosp_API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new AlaMap());
+            modelBuilder.ApplyConfiguration(new EquipamentoMap());
+            modelBuilder.ApplyConfiguration(new EquipamentoUtilizadoMap());
+            modelBuilder.ApplyConfiguration(new LimpezaMap());
+            modelBuilder.ApplyConfiguration(new LocalMap());
+            modelBuilder.ApplyConfiguration(new LocalLimpezaMap());
+            modelBuilder.ApplyConfiguration(new PessoaMap());
+            modelBuilder.ApplyConfiguration(new ProdutoMap());
+            modelBuilder.ApplyConfiguration(new ProdutoUtilizadoMap());
             base.OnModelCreating(modelBuilder);
         }
-
     }
 }

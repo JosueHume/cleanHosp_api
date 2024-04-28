@@ -31,7 +31,7 @@ namespace CleanHosp_API
 
             builder.Services.AddDbContext<CleanHospDBContext>(options =>
             {
-                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+                options.UseNpgsql(builder.Configuration.GetConnectionString("Database"));
             });
 
             builder.Services.AddScoped<IAlaInterface, AlaRepositorio>();

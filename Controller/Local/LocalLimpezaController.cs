@@ -2,7 +2,7 @@
 using CleanHosp_API.Repositorio.Interface.Local;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CleanHosp_API.Controller.LocalLimpeza
+namespace CleanHosp_API.Controller.Local
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,9 +16,9 @@ namespace CleanHosp_API.Controller.LocalLimpeza
         }
 
         [HttpGet]
-        public ActionResult<List<LocalLimpezaModel>> GetLocalLimpeza()
+        public ActionResult<List<LocalLimpezaModel>> GetLocaisLimpeza()
         {
-            return Ok();
+            return Ok(); 
         }
 
         [HttpGet("{Id}")]
@@ -44,7 +44,7 @@ namespace CleanHosp_API.Controller.LocalLimpeza
         }
 
         [HttpDelete("{Id}")]
-        public async Task<ActionResult<LocalLimpezaModel>> Deletar(int Id)
+        public async Task<ActionResult<bool>> Deletar(int Id)
         {
             bool localLimpezaApagado = await _localLimpezaInterface.Deletar(Id);
             return Ok(localLimpezaApagado);
