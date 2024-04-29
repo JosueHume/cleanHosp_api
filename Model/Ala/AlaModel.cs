@@ -4,8 +4,8 @@ namespace CleanHosp_API.Model.Ala
 {
     public class AlaModel
     {
-        public int Id { get; set; }
-        public required string Descricao { get; set; }
-        public List<LocalModel>? Locais { get; set; }  
+        public int ala_id { get; set; }
+        public required string ds_descricao { get; set; }
+        public LocalModel? Local { get; set; }  
     }
 }

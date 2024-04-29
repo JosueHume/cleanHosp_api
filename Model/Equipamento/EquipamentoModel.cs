@@ -2,14 +2,14 @@
 {
     public class EquipamentoModel
     {
-        public int Id { get; set; }
-        public required string Nome { get; set; }
-        public required string Marca { get; set; }
-        public required string Modelo { get; set; }
-        public DateTime? Dt_aquisicao { get; set; }
-        public required string Descricao { get; set; }
-        public required decimal Vl_aquisicao { get; set; }
-        public bool? XAtivo { get; set; }
+        public int equipamento_id { get; set; }
+        public required string ds_nome { get; set; }
+        public required string ds_marca { get; set; }
+        public required string ds_modelo { get; set; }
+        public DateTime? dt_aquisicao { get; set; }
+        public required string ds_descricao { get; set; }
+        public required decimal vl_aquisicao { get; set; }
+        public bool? xAtivo { get; set; }
         public EquipamentoUtilizadoModel? EquipamentoUtilizado { get; set; }
     }
 }

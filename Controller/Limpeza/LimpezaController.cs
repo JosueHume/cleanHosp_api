@@ -39,7 +39,7 @@ namespace CleanHosp_API.Controller.Limpeza
         [HttpPut("{Id}")]
         public async Task<ActionResult<LimpezaModel>> Atualizar([FromBody] LimpezaModel limpezaModel, int Id)
         {
-            limpezaModel.Id = Id;
+            limpezaModel.limpeza_id = Id;
             LimpezaModel? limpeza = await _limpezaInterface.Atualizar(limpezaModel, Id);
             return Ok(limpeza);
         }

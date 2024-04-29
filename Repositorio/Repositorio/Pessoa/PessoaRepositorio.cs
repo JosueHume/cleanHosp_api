@@ -23,12 +23,12 @@ namespace CleanHosp_API.Repositorio.Repositorio.Pessoa
                 throw new Exception($"Pessoa para o Id: {Id} não encontrada!");
             }
 
-            pessoaCadastrada.Nome = pessoa.Nome;
-            pessoaCadastrada.Cpf = pessoa.Cpf;
-            pessoaCadastrada.Telefone = pessoa.Telefone;
-            pessoaCadastrada.Email = pessoa.Email;
-            pessoaCadastrada.Login  = pessoa.Login;
-            pessoaCadastrada.Senha = pessoa.Senha;
+            pessoaCadastrada.ds_nome = pessoa.ds_nome;
+            pessoaCadastrada.nr_cpf = pessoa.nr_cpf;
+            pessoaCadastrada.nr_telefone = pessoa.nr_telefone;
+            pessoaCadastrada.ds_email = pessoa.ds_email;
+            pessoaCadastrada.ds_login  = pessoa.ds_login;
+            pessoaCadastrada.ds_senha = pessoa.ds_senha;
 
             _cleanDBContext.Update(pessoaCadastrada);
             await _cleanDBContext.SaveChangesAsync();
@@ -38,17 +38,17 @@ namespace CleanHosp_API.Repositorio.Repositorio.Pessoa
 
         public async Task<PessoaModel?> BuscarPorId(int Id)
         {
-            return await _cleanDBContext.Pessoas.FirstOrDefaultAsync(p => p.Id == Id);
+            return await _cleanDBContext.pessoa.FirstOrDefaultAsync(p => p.pessoa_id == Id);
         }
 
         public async Task<List<PessoaModel>> BuscarTodasPessoas()
         {
-            return await _cleanDBContext.Pessoas.ToListAsync();
+            return await _cleanDBContext.pessoa.ToListAsync();
         }
 
         public async Task<PessoaModel?> Cadastrar(PessoaModel pessoa)
         {
-            await _cleanDBContext.Pessoas.AddAsync(pessoa);
+            await _cleanDBContext.pessoa.AddAsync(pessoa);
             await _cleanDBContext.SaveChangesAsync();
 
             return pessoa;
@@ -63,7 +63,7 @@ namespace CleanHosp_API.Repositorio.Repositorio.Pessoa
                 throw new Exception($"Pessoa para o Id: {Id} não encontrada!");
             }
 
-            _cleanDBContext.Remove(pessoaCadastrada.Id);
+            _cleanDBContext.Remove(pessoaCadastrada.pessoa_id);
             await _cleanDBContext.SaveChangesAsync();
 
             return true;

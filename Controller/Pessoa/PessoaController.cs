@@ -39,7 +39,7 @@ namespace CleanHosp_API.Controller.Pessoa
         [HttpPut("{Id}")]
         public async Task<ActionResult<PessoaModel>> Atualizar([FromBody] PessoaModel pessoaModel, int Id)
         {
-            pessoaModel.Id = Id;
+            pessoaModel.pessoa_id = Id;
             PessoaModel? pessoa = await _pessoaInterface.Atualizar(pessoaModel, Id);
             return Ok(pessoa);
         }

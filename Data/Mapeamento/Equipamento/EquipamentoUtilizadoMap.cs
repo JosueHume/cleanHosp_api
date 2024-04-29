@@ -8,12 +8,9 @@ namespace CleanHosp_API.Data.Mapeamento.Equipamento
     {
         public void Configure(EntityTypeBuilder<EquipamentoUtilizadoModel> equipamentoUtilizadoMap)
         {
-            equipamentoUtilizadoMap.HasKey(x => x.Id);
-            equipamentoUtilizadoMap.Property(x => x.Nr_TempoUso).IsRequired();
-            equipamentoUtilizadoMap.Property(x => x.IdEquipamento).IsRequired();
-
-
-            equipamentoUtilizadoMap.HasMany(x => x.Equipamentos);
+            equipamentoUtilizadoMap.HasKey(x => x.equipamentos_utilizados_id);
+            equipamentoUtilizadoMap.Property(x => x.nr_tempoUso).IsRequired();
+            equipamentoUtilizadoMap.Property(x => x.equipamento_id).IsRequired();
         }
     }
 }

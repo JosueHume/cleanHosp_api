@@ -8,10 +8,12 @@ namespace CleanHosp_API.Data.Mapeamento.Produto
     {
         public void Configure(EntityTypeBuilder<ProdutoModel> produtoMap)
         {
-            produtoMap.HasKey(x => x.Id);
-            produtoMap.Property(x => x.Descricao).IsRequired().HasMaxLength(255);
-            produtoMap.Property(x => x.Valor).IsRequired();
-            produtoMap.Property(x => x.Quantidade).IsRequired();
+            produtoMap.HasKey(x => x.produto_id);
+            produtoMap.Property(x => x.ds_nome).IsRequired().HasMaxLength(100);
+            produtoMap.Property(x => x.ds_marca).IsRequired().HasMaxLength(100);
+            produtoMap.Property(x => x.ds_descricao).IsRequired().HasMaxLength(100);
+            produtoMap.Property(x => x.vl_unitario).IsRequired();
+            produtoMap.Property(x => x.qtde_estoque).IsRequired();
         }
     }
 }

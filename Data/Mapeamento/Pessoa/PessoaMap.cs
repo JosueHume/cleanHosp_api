@@ -8,13 +8,13 @@ namespace CleanHosp_API.Data.Mapeamento.Pessoa
     {
         public void Configure(EntityTypeBuilder<PessoaModel> pessoaMap)
         {
-            pessoaMap.HasKey(x => x.Id);
-            pessoaMap.Property(x => x.Nome).IsRequired().HasMaxLength(150);
-            pessoaMap.Property(x => x.Cpf).IsRequired().HasMaxLength(11);
-            pessoaMap.Property(x => x.Telefone);
-            pessoaMap.Property(x => x.Email).IsRequired().HasMaxLength(100);
-            pessoaMap.Property(x => x.Login).IsRequired().HasMaxLength(50);
-            pessoaMap.Property(x => x.Senha).IsRequired().HasMaxLength(50);
+            pessoaMap.HasKey(x => x.pessoa_id);
+            pessoaMap.Property(x => x.ds_nome).IsRequired().HasMaxLength(100);
+            pessoaMap.Property(x => x.nr_cpf).IsRequired().HasMaxLength(11);
+            pessoaMap.Property(x => x.nr_telefone).HasMaxLength(20);
+            pessoaMap.Property(x => x.ds_email).IsRequired().HasMaxLength(50);
+            pessoaMap.Property(x => x.ds_login).IsRequired().HasMaxLength(100);
+            pessoaMap.Property(x => x.ds_senha).IsRequired().HasMaxLength(100);
         }
     }
 }

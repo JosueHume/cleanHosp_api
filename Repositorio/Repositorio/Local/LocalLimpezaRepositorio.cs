@@ -1,5 +1,5 @@
 ﻿using CleanHosp_API.Data;
-using CleanHosp_API.Model.LocalLimpeza;
+using CleanHosp_API.Model.Local;
 using CleanHosp_API.Repositorio.Interface.Local;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,17 +23,17 @@ namespace CleanHosp_API.Repositorio.Repositorio.Local
                 throw new Exception($"Local de Limpeza para o Id: {Id} não encontrado!");
             }
 
-            localLimpezaCadastrado.IdAla = localLimpeza.IdAla;
-            localLimpezaCadastrado.IdPessoa = localLimpeza.IdPessoa;
-            localLimpezaCadastrado.Dt_Inicio = localLimpeza.Dt_Inicio;
-            localLimpezaCadastrado.Dt_Fim = localLimpeza.Dt_Fim;
-            localLimpezaCadastrado.IdLimpeza = localLimpeza.IdLimpeza;
-            localLimpezaCadastrado.IdProdutoUtilizado = localLimpeza.IdProdutoUtilizado;
-            localLimpezaCadastrado.IdEquipamentoUtilizado = localLimpeza.IdEquipamentoUtilizado;
-            localLimpezaCadastrado.Descricao = localLimpeza.Descricao;
-            localLimpezaCadastrado.Status = localLimpeza.Status; 
+            localLimpezaCadastrado.ala_id = localLimpeza.ala_id;
+            localLimpezaCadastrado.pessoa_id = localLimpeza.pessoa_id;
+            localLimpezaCadastrado.dt_inicio = localLimpeza.dt_inicio;
+            localLimpezaCadastrado.dt_fim = localLimpeza.dt_fim;
+            localLimpezaCadastrado.limpeza_id = localLimpeza.limpeza_id;
+            localLimpezaCadastrado.produtos_utilizados_id = localLimpeza.produtos_utilizados_id;
+            localLimpezaCadastrado.equipamentos_utilizados_id = localLimpeza.equipamentos_utilizados_id;
+            localLimpezaCadastrado.ds_descricao = localLimpeza.ds_descricao;
+            localLimpezaCadastrado.status = localLimpeza.status;
 
-            _cleanDBContext.Update(localLimpezaCadastrado);
+        _cleanDBContext.Update(localLimpezaCadastrado);
             await _cleanDBContext.SaveChangesAsync();
 
             return localLimpezaCadastrado;
@@ -41,18 +41,18 @@ namespace CleanHosp_API.Repositorio.Repositorio.Local
 
         public async Task<LocalLimpezaModel?> BuscarPorId(int Id)
         {
-            return await _cleanDBContext.LocalLimpezas.FirstOrDefaultAsync(lp => lp.Id == Id);
+            return await _cleanDBContext.local_limpeza.FirstOrDefaultAsync(lp => lp.localLimpeza_id == Id);
         }
 
         public async Task<List<LocalLimpezaModel>> BuscarTodosLocalLimpeza()
         {
 
-            return await _cleanDBContext.LocalLimpezas.ToListAsync();
+            return await _cleanDBContext.local_limpeza.ToListAsync();
         }
 
         public async Task<LocalLimpezaModel?> Cadastrar(LocalLimpezaModel localLimpeza)
         {
-            await _cleanDBContext.LocalLimpezas.AddAsync(localLimpeza);
+            await _cleanDBContext.local_limpeza.AddAsync(localLimpeza);
             await _cleanDBContext.SaveChangesAsync();
 
             return localLimpeza;
@@ -67,7 +67,7 @@ namespace CleanHosp_API.Repositorio.Repositorio.Local
                 throw new Exception($"Local de Limpeza para o Id: {Id} não encontrado!");
             }
 
-            _cleanDBContext.Remove(localLimpezaCadastrado.Id);
+            _cleanDBContext.Remove(localLimpezaCadastrado.localLimpeza_id);
             await _cleanDBContext.SaveChangesAsync();
 
             return true;

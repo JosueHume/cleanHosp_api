@@ -8,10 +8,8 @@ namespace CleanHosp_API.Data.Mapeamento.Ala
     {
         public void Configure(EntityTypeBuilder<AlaModel> alaMap)
         {
-            alaMap.HasKey(x => x.Id);
-            alaMap.Property(x => x.Descricao).IsRequired().HasMaxLength(100);
-
-            alaMap.HasMany(x => x.Locais);
+            alaMap.HasKey(x => x.ala_id);
+            alaMap.Property(x => x.ds_descricao).IsRequired().HasMaxLength(100);
         }
     }
 }

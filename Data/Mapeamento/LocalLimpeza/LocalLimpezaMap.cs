@@ -1,4 +1,4 @@
-﻿using CleanHosp_API.Model.LocalLimpeza;
+﻿using CleanHosp_API.Model.Local;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,16 +8,16 @@ namespace CleanHosp_API.Data.Mapeamento.LocalLimpeza
     {
         public void Configure(EntityTypeBuilder<LocalLimpezaModel> localLimpezaMap)
         {
-            localLimpezaMap.HasKey(x => x.Id);
-            localLimpezaMap.Property(x => x.IdAla).IsRequired();
-            localLimpezaMap.Property(x => x.IdPessoa).IsRequired();
-            localLimpezaMap.Property(x => x.Dt_Inicio);
-            localLimpezaMap.Property(x => x.Dt_Fim);
-            localLimpezaMap.Property(x => x.IdLimpeza).IsRequired();
-            localLimpezaMap.Property(x => x.IdProdutoUtilizado).IsRequired();
-            localLimpezaMap.Property(x => x.IdEquipamentoUtilizado).IsRequired();
-            localLimpezaMap.Property(x => x.Descricao).IsRequired().HasMaxLength(255);
-            localLimpezaMap.Property(x => x.Status).IsRequired();
+            localLimpezaMap.HasKey(x => x.localLimpeza_id);
+            localLimpezaMap.Property(x => x.ala_id).IsRequired();
+            localLimpezaMap.Property(x => x.pessoa_id).IsRequired();
+            localLimpezaMap.Property(x => x.dt_inicio);
+            localLimpezaMap.Property(x => x.dt_fim);
+            localLimpezaMap.Property(x => x.limpeza_id).IsRequired();
+            localLimpezaMap.Property(x => x.produtos_utilizados_id).IsRequired();
+            localLimpezaMap.Property(x => x.equipamentos_utilizados_id).IsRequired();
+            localLimpezaMap.Property(x => x.ds_descricao).IsRequired().HasMaxLength(100);
+            localLimpezaMap.Property(x => x.status).IsRequired();
         }
     }
 }

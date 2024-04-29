@@ -23,11 +23,11 @@ namespace CleanHosp_API.Repositorio.Repositorio.Produto
                 throw new Exception($"Produto para o Id: {Id} não encontrado!");
             }
 
-            produtoCadastrado.Nome = produto.Nome;
-            produtoCadastrado.Marca = produto.Marca;
-            produtoCadastrado.Descricao = produto.Descricao;
-            produtoCadastrado.Quantidade = produto.Quantidade;
-            produtoCadastrado.Valor = produto.Valor;    
+            produtoCadastrado.ds_nome = produto.ds_nome;
+            produtoCadastrado.ds_marca = produto.ds_marca;
+            produtoCadastrado.ds_descricao = produto.ds_descricao;
+            produtoCadastrado.qtde_estoque = produto.qtde_estoque;
+            produtoCadastrado.vl_unitario = produto.vl_unitario;    
 
             _cleanDBContext.Update(produtoCadastrado);
             await _cleanDBContext.SaveChangesAsync();
@@ -37,17 +37,17 @@ namespace CleanHosp_API.Repositorio.Repositorio.Produto
 
         public async Task<ProdutoModel?> BuscarPorId(int Id)
         {
-            return await _cleanDBContext.Produtos.FirstOrDefaultAsync(p => p.Id == Id);
+            return await _cleanDBContext.produto.FirstOrDefaultAsync(p => p.produto_id == Id);
         }
 
         public async Task<List<ProdutoModel>> BuscarTodosProdutos()
         {
-            return await _cleanDBContext.Produtos.ToListAsync();
+            return await _cleanDBContext.produto.ToListAsync();
         }
 
         public async Task<ProdutoModel?> Cadastrar(ProdutoModel produto)
         {
-            await _cleanDBContext.Produtos.AddAsync(produto);
+            await _cleanDBContext.produto.AddAsync(produto);
             await _cleanDBContext.SaveChangesAsync();
 
             return produto;
@@ -62,7 +62,7 @@ namespace CleanHosp_API.Repositorio.Repositorio.Produto
                 throw new Exception($"Produto para o Id: {Id} não encontrado!");
             }
 
-            _cleanDBContext.Remove(produtoCadastrado.Id);
+            _cleanDBContext.Remove(produtoCadastrado.produto_id);
             await _cleanDBContext.SaveChangesAsync();
 
             return true;

@@ -39,7 +39,7 @@ namespace CleanHosp_API.Controller.Ala
         [HttpPut("{Id}")]
         public async Task<ActionResult<AlaModel>> Atualizar([FromBody] AlaModel alaModel, int Id)
         {
-            alaModel.Id = Id;
+            alaModel.ala_id = Id;
             AlaModel? ala = await _alaInterface.Atualizar(alaModel, Id);
             return Ok(ala);
         }

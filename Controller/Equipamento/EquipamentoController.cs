@@ -16,9 +16,10 @@ namespace CleanHosp_API.Controller.Equipamento
         }
 
         [HttpGet]
-        public ActionResult<List<EquipamentoModel>> GetEquipamentos()
+        public async Task<ActionResult<List<EquipamentoModel>>> GetEquipamentos()
         {
-            return Ok();
+            List<EquipamentoModel> equipamentos = await _equipamentoInterface.BuscarTodosEquipamentos();
+            return Ok(equipamentos);
         }
 
         [HttpGet("{Id}")]
@@ -38,7 +39,7 @@ namespace CleanHosp_API.Controller.Equipamento
         [HttpPut("{Id}")]
         public async Task<ActionResult<EquipamentoModel>> Atualizar([FromBody] EquipamentoModel equipamentoModel, int Id)
         {
-            equipamentoModel.Id = Id;
+            equipamentoModel.equipamento_id = Id;
             EquipamentoModel? equipamento = await _equipamentoInterface.Atualizar(equipamentoModel, Id);
             return Ok(equipamento);
         }

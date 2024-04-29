@@ -23,8 +23,8 @@ namespace CleanHosp_API.Repositorio.Repositorio.Local
                 throw new Exception($"Ala para o Id: {Id} não encontrado!");
             }
 
-            localCadastrado.IdAla = local.IdAla;
-            localCadastrado.Descricao = local.Descricao;
+            localCadastrado.ala_id = local.ala_id;
+            localCadastrado.ds_descricao = local.ds_descricao;
 
             _cleanDBContext.Update(localCadastrado);
             await _cleanDBContext.SaveChangesAsync();
@@ -34,17 +34,17 @@ namespace CleanHosp_API.Repositorio.Repositorio.Local
 
         public async Task<LocalModel?> BuscarPorId(int Id)
         {
-            return await _cleanDBContext.Locais.FirstOrDefaultAsync(l => l.Id == Id);
+            return await _cleanDBContext.local.FirstOrDefaultAsync(l => l.local_id == Id);
         }
 
         public async Task<List<LocalModel>> BuscarTodosLocalLimpeza()
         {
-            return await _cleanDBContext.Locais.ToListAsync();
+            return await _cleanDBContext.local.ToListAsync();
         }
 
         public async Task<LocalModel?> Cadastrar(LocalModel local)
         {
-            await _cleanDBContext.Locais.AddAsync(local);
+            await _cleanDBContext.local.AddAsync(local);
             await _cleanDBContext.SaveChangesAsync();
 
             return local;
@@ -59,7 +59,7 @@ namespace CleanHosp_API.Repositorio.Repositorio.Local
                 throw new Exception($"Local para o Id: {Id} não encontrado!");
             }
 
-            _cleanDBContext.Remove(localCadastrado.Id);
+            _cleanDBContext.Remove(localCadastrado.local_id);
             await _cleanDBContext.SaveChangesAsync();
 
             return true;

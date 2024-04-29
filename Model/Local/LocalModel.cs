@@ -4,9 +4,8 @@ namespace CleanHosp_API.Model.Local
 {
     public class LocalModel
     {
-        public int Id { get; set; }
-        public required int IdAla { get; set; }
-        public required string Descricao { get; set; }
-        public AlaModel? Ala { get; set; }
+        public int local_id { get; set; }
+        public required int ala_id { get; set; }
+        public required string ds_descricao { get; set; }
     }
 }

@@ -4,9 +4,9 @@ namespace CleanHosp_API.Model.Produto
 {
     public class ProdutoUtilizadoModel
     {
-        public int Id { get; set; }
-        public required int Quantidade { get; set; }
-        public required int IdProduto { get; set; }
+        public int produtos_utilizados_id { get; set; }
+        public required int quantidade { get; set; }
+        public required int produto_id { get; set; }
         public List<ProdutoModel>? Produtos { get; set; }
     }
 }

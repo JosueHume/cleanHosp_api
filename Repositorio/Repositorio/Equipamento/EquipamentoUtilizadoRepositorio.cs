@@ -23,8 +23,8 @@ namespace CleanHosp_API.Repositorio.Repositorio.Equipamento
                 throw new Exception($"Equipamento Utilizado para o Id: {Id} não encontrado!");
             }
 
-            equipamentoUtilizadoCadastrado.Nr_TempoUso = equipamentoUtilizado.Nr_TempoUso;
-            equipamentoUtilizadoCadastrado.IdEquipamento = equipamentoUtilizado.IdEquipamento;
+            equipamentoUtilizadoCadastrado.nr_tempoUso = equipamentoUtilizado.nr_tempoUso;
+            equipamentoUtilizadoCadastrado.equipamento_id = equipamentoUtilizado.equipamento_id;
 
             _cleanDBContext.Update(equipamentoUtilizadoCadastrado);
             await _cleanDBContext.SaveChangesAsync();
@@ -34,17 +34,17 @@ namespace CleanHosp_API.Repositorio.Repositorio.Equipamento
 
         public async Task<EquipamentoUtilizadoModel?> BuscarPorId(int Id)
         {
-            return await _cleanDBContext.EquipamentosUtilizados.FirstOrDefaultAsync(eu => eu.Id == Id);
+            return await _cleanDBContext.equipamentos_utilizados.FirstOrDefaultAsync(eu => eu.equipamento_id == Id);
         }
 
         public async Task<List<EquipamentoUtilizadoModel>> BuscarTodosEquipamentosUtilizados()
         {
-            return await _cleanDBContext.EquipamentosUtilizados.ToListAsync();
+            return await _cleanDBContext.equipamentos_utilizados.ToListAsync();
         }
 
         public async Task<EquipamentoUtilizadoModel?> Cadastrar(EquipamentoUtilizadoModel equipamentoUtilizado)
         {
-            await _cleanDBContext.EquipamentosUtilizados.AddAsync(equipamentoUtilizado);
+            await _cleanDBContext.equipamentos_utilizados.AddAsync(equipamentoUtilizado);
             await _cleanDBContext.SaveChangesAsync();
 
             return equipamentoUtilizado;
@@ -59,7 +59,7 @@ namespace CleanHosp_API.Repositorio.Repositorio.Equipamento
                 throw new Exception($"Equipamento Utilizado para o Id: {Id} não encontrado!");
             }
 
-            _cleanDBContext.Remove(equipamentoUtilizadoCadastrado.Id);
+            _cleanDBContext.Remove(equipamentoUtilizadoCadastrado.equipamento_id);
             await _cleanDBContext.SaveChangesAsync();
 
             return true;

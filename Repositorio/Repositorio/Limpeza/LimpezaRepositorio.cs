@@ -23,7 +23,7 @@ namespace CleanHosp_API.Repositorio.Repositorio.Limpeza
                 throw new Exception($"Limpeza para o Id: {Id} não encontrado!");
             }
 
-            limpezaCadastrada.Descricao = limpeza.Descricao;
+            limpezaCadastrada.ds_descricao = limpeza.ds_descricao;
 
             _cleanDBContext.Update(limpezaCadastrada);
             await _cleanDBContext.SaveChangesAsync();
@@ -33,17 +33,17 @@ namespace CleanHosp_API.Repositorio.Repositorio.Limpeza
 
         public async Task<LimpezaModel?> BuscarPorId(int Id)
         {
-            return await _cleanDBContext.Limpezas.FirstOrDefaultAsync(l => l.Id == Id);
+            return await _cleanDBContext.limpeza.FirstOrDefaultAsync(l => l.limpeza_id == Id);
         }
 
         public async Task<List<LimpezaModel>> BuscarTodasLimpeza()
         {
-            return await _cleanDBContext.Limpezas.ToListAsync();
+            return await _cleanDBContext.limpeza.ToListAsync();
         }
 
         public async Task<LimpezaModel?> Cadastrar(LimpezaModel limpeza)
         {
-            await _cleanDBContext.Limpezas.AddAsync(limpeza);
+            await _cleanDBContext.limpeza.AddAsync(limpeza);
             await _cleanDBContext.SaveChangesAsync();
 
             return limpeza;
@@ -58,7 +58,7 @@ namespace CleanHosp_API.Repositorio.Repositorio.Limpeza
                 throw new Exception($"Limpeza para o Id: {Id} não encontrado!");
             }
 
-            _cleanDBContext.Remove(limpezaCadastrada.Id);
+            _cleanDBContext.Remove(limpezaCadastrada.limpeza_id);
             await _cleanDBContext.SaveChangesAsync();
 
             return true;

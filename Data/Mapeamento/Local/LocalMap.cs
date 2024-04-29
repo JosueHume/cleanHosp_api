@@ -8,9 +8,9 @@ namespace CleanHosp_API.Data.Mapeamento.Local
     {
         public void Configure(EntityTypeBuilder<LocalModel> localMap)
         {
-            localMap.HasKey(x => x.Id);
-            localMap.Property(x => x.IdAla).IsRequired();
-            localMap.Property(x => x.Descricao).IsRequired().HasMaxLength(255);
+            localMap.HasKey(x => x.local_id);
+            localMap.Property(x => x.ala_id).IsRequired();
+            localMap.Property(x => x.ds_descricao).IsRequired().HasMaxLength(100);
         }
     }
 }

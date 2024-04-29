@@ -8,9 +8,9 @@ namespace CleanHosp_API.Data.Mapeamento.Produto
     {
         public void Configure(EntityTypeBuilder<ProdutoUtilizadoModel> produtoUtilizadoMap)
         {
-            produtoUtilizadoMap.HasKey(x => x.Id);
-            produtoUtilizadoMap.Property(x => x.IdProduto).IsRequired();
-            produtoUtilizadoMap.Property(x => x.Quantidade).IsRequired();
+            produtoUtilizadoMap.HasKey(x => x.produtos_utilizados_id);
+            produtoUtilizadoMap.Property(x => x.produto_id).IsRequired();
+            produtoUtilizadoMap.Property(x => x.quantidade).IsRequired();
 
             produtoUtilizadoMap.HasMany(x => x.Produtos);
         }

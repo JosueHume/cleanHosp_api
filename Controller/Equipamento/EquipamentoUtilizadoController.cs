@@ -39,7 +39,7 @@ namespace CleanHosp_API.Controller.EquipamentoUtilizado
         [HttpPut("{Id}")]
         public async Task<ActionResult<EquipamentoUtilizadoModel>> Atualizar([FromBody] EquipamentoUtilizadoModel equipamentoUtilizadoModel, int Id)
         {
-            equipamentoUtilizadoModel.Id = Id;
+            equipamentoUtilizadoModel.equipamentos_utilizados_id = Id;
             EquipamentoUtilizadoModel? equipamentoUtilizado = await _equipamentoUtilizadoInterface.Atualizar(equipamentoUtilizadoModel, Id);
             return Ok(equipamentoUtilizado);
         }

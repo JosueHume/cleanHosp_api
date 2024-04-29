@@ -9,7 +9,6 @@ using CleanHosp_API.Model.Ala;
 using CleanHosp_API.Model.Equipamento;
 using CleanHosp_API.Model.Limpeza;
 using CleanHosp_API.Model.Local;
-using CleanHosp_API.Model.LocalLimpeza;
 using CleanHosp_API.Model.Pessoa;
 using CleanHosp_API.Model.Produto;
 using Microsoft.EntityFrameworkCore;
@@ -23,15 +22,15 @@ namespace CleanHosp_API.Data
         {
         }
 
-        public DbSet<AlaModel> Alas { get; set; }
-        public DbSet<EquipamentoModel> Equipamentos { get; set; }
-        public DbSet<EquipamentoUtilizadoModel> EquipamentosUtilizados { get; set; }
-        public DbSet<LimpezaModel> Limpezas { get; set; }
-        public DbSet<LocalModel> Locais { get; set; }
-        public DbSet<LocalLimpezaModel> LocalLimpezas { get; set; }
-        public DbSet<PessoaModel> Pessoas { get; set; }
-        public DbSet<ProdutoModel> Produtos { get; set; }
-        public DbSet<ProdutoUtilizadoModel> ProdutosUtilizados { get; set; }
+        public DbSet<AlaModel> ala { get; set; }
+        public DbSet<EquipamentoModel> equipamento { get; set; }
+        public DbSet<EquipamentoUtilizadoModel> equipamentos_utilizados { get; set; }
+        public DbSet<LimpezaModel> limpeza { get; set; }
+        public DbSet<LocalModel> local { get; set; }
+        public DbSet<LocalLimpezaModel> local_limpeza { get; set; }
+        public DbSet<PessoaModel> pessoa { get; set; }
+        public DbSet<ProdutoModel> produto { get; set; }
+        public DbSet<ProdutoUtilizadoModel> produtos_utilizados { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

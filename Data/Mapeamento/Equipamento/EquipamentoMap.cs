@@ -8,14 +8,14 @@ namespace CleanHosp_API.Data.Mapeamento.Equipamento
     {
         public void Configure(EntityTypeBuilder<EquipamentoModel> equipamentoMap)
         {
-            equipamentoMap.HasKey(x => x.Id);
-            equipamentoMap.Property(x => x.Nome).IsRequired().HasMaxLength(100);
-            equipamentoMap.Property(x => x.Marca).IsRequired().HasMaxLength(50);
-            equipamentoMap.Property(x => x.Modelo).IsRequired().HasMaxLength(50);
-            equipamentoMap.Property(x => x.Dt_aquisicao);
-            equipamentoMap.Property(x => x.Descricao).IsRequired().HasMaxLength(255);
-            equipamentoMap.Property(x => x.Vl_aquisicao).IsRequired();
-            equipamentoMap.Property(x => x.XAtivo);
+            equipamentoMap.HasKey(x => x.equipamento_id);
+            equipamentoMap.Property(x => x.ds_nome).IsRequired().HasMaxLength(100);
+            equipamentoMap.Property(x => x.ds_marca).IsRequired().HasMaxLength(100);
+            equipamentoMap.Property(x => x.ds_modelo).IsRequired().HasMaxLength(100);
+            equipamentoMap.Property(x => x.dt_aquisicao);
+            equipamentoMap.Property(x => x.ds_descricao).IsRequired().HasMaxLength(100);
+            equipamentoMap.Property(x => x.vl_aquisicao).IsRequired();
+            equipamentoMap.Property(x => x.xAtivo);
         }
     }
 }

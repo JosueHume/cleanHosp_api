@@ -1,4 +1,4 @@
-﻿using CleanHosp_API.Model.LocalLimpeza;
+﻿using CleanHosp_API.Model.Local;
 using CleanHosp_API.Repositorio.Interface.Local;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,7 +38,7 @@ namespace CleanHosp_API.Controller.Local
         [HttpPut("{Id}")]
         public async Task<ActionResult<LocalLimpezaModel>> Atualizar([FromBody] LocalLimpezaModel localLimpezaModel, int Id)
         {
-            localLimpezaModel.Id = Id;
+            localLimpezaModel.localLimpeza_id = Id;
             LocalLimpezaModel? localLimpeza = await _localLimpezaInterface.Atualizar(localLimpezaModel, Id);
             return Ok(localLimpeza);
         }

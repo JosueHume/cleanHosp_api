@@ -38,7 +38,7 @@ namespace CleanHosp_API.Controller.Produto
         [HttpPut("{Id}")]
         public async Task<ActionResult<ProdutoModel>> Atualizar([FromBody] ProdutoModel produtoModel, int Id)
         {
-            produtoModel.Id = Id;
+            produtoModel.produto_id = Id;
             ProdutoModel? produto = await _produtoInterface.Atualizar(produtoModel, Id);
             return Ok(produto);
         }

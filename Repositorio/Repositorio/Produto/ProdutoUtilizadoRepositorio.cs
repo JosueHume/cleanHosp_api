@@ -23,8 +23,8 @@ namespace CleanHosp_API.Repositorio.Repositorio.Produto
                 throw new Exception($"Produto Utilizado para o Id: {Id} não encontrado!");
             }
 
-            produtoUtilizadoCadastrado.Quantidade = produtoUtilizado.Quantidade;
-            produtoUtilizadoCadastrado.IdProduto = produtoUtilizado.IdProduto;
+            produtoUtilizadoCadastrado.quantidade = produtoUtilizado.quantidade;
+            produtoUtilizadoCadastrado.produto_id = produtoUtilizado.produto_id;
 
             _cleanDBContext.Update(produtoUtilizadoCadastrado);
             await _cleanDBContext.SaveChangesAsync();
@@ -34,17 +34,17 @@ namespace CleanHosp_API.Repositorio.Repositorio.Produto
 
         public async Task<ProdutoUtilizadoModel?> BuscarPorId(int Id)
         {
-            return await _cleanDBContext.ProdutosUtilizados.FirstOrDefaultAsync(pu => pu.Id == Id);
+            return await _cleanDBContext.produtos_utilizados.FirstOrDefaultAsync(pu => pu.produtos_utilizados_id == Id);
         }
 
         public async Task<List<ProdutoUtilizadoModel>> BuscarTodosProdutosUtilizados()
         {
-            return await _cleanDBContext.ProdutosUtilizados.ToListAsync();
+            return await _cleanDBContext.produtos_utilizados.ToListAsync();
         }
 
         public async Task<ProdutoUtilizadoModel?> Cadastrar(ProdutoUtilizadoModel produtoUtilizado)
         {
-            await _cleanDBContext.ProdutosUtilizados.AddAsync(produtoUtilizado);
+            await _cleanDBContext.produtos_utilizados.AddAsync(produtoUtilizado);
             await _cleanDBContext.SaveChangesAsync();
 
             return produtoUtilizado;
@@ -59,7 +59,7 @@ namespace CleanHosp_API.Repositorio.Repositorio.Produto
                 throw new Exception($"Produto Utilizado para o Id: {Id} não encontrado!");
             }
 
-            _cleanDBContext.Remove(produtoUtilizadoCadastrado.Id);
+            _cleanDBContext.Remove(produtoUtilizadoCadastrado.produtos_utilizados_id);
             await _cleanDBContext.SaveChangesAsync();
 
             return true;

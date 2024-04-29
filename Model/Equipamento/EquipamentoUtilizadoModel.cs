@@ -4,9 +4,8 @@ namespace CleanHosp_API.Model.Equipamento
 {
     public class EquipamentoUtilizadoModel
     {
-        public int Id { get; set; }
-        public required int Nr_TempoUso { get; set; }
-        public required int IdEquipamento { get; set; }
-        public List<EquipamentoModel>? Equipamentos { get; set; }
+        public int equipamentos_utilizados_id { get; set; }
+        public required int equipamento_id { get; set; }
+        public required int nr_tempoUso { get; set; }
     }
 }

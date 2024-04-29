@@ -8,8 +8,8 @@ namespace CleanHosp_API.Data.Mapeamento.Limpeza
     {
         public void Configure(EntityTypeBuilder<LimpezaModel> limpezaMap)
         {
-            limpezaMap.HasKey(x => x.Id);
-            limpezaMap.Property(x => x.Descricao).IsRequired().HasMaxLength(255);
+            limpezaMap.HasKey(x => x.limpeza_id);
+            limpezaMap.Property(x => x.ds_descricao).IsRequired().HasMaxLength(100);
         }
     }
 }

@@ -23,13 +23,13 @@ namespace CleanHosp_API.Repositorio.Repositorio.Equipamento
                 throw new Exception($"Equiapmento para o Id: {Id} não encontrado!");
             }
 
-            equipamentoCadastrado.Nome = equipamento.Nome;
-            equipamentoCadastrado.Marca = equipamento.Marca;
-            equipamentoCadastrado.Modelo = equipamento.Modelo; 
-            equipamentoCadastrado.Dt_aquisicao = equipamentoCadastrado.Dt_aquisicao;
-            equipamentoCadastrado.Descricao = equipamentoCadastrado.Descricao;
-            equipamentoCadastrado.Vl_aquisicao = equipamentoCadastrado.Vl_aquisicao;
-            equipamentoCadastrado.XAtivo = equipamentoCadastrado.XAtivo;
+            equipamentoCadastrado.ds_nome = equipamento.ds_nome;
+            equipamentoCadastrado.ds_marca = equipamento.ds_marca;
+            equipamentoCadastrado.ds_modelo = equipamento.ds_modelo; 
+            equipamentoCadastrado.dt_aquisicao = equipamentoCadastrado.dt_aquisicao;
+            equipamentoCadastrado.ds_descricao = equipamentoCadastrado.ds_descricao;
+            equipamentoCadastrado.vl_aquisicao = equipamentoCadastrado.vl_aquisicao;
+            equipamentoCadastrado.xAtivo = equipamentoCadastrado.xAtivo;
 
             _cleanDBContext.Update(equipamentoCadastrado);
             await _cleanDBContext.SaveChangesAsync();
@@ -39,17 +39,17 @@ namespace CleanHosp_API.Repositorio.Repositorio.Equipamento
 
         public async Task<EquipamentoModel?> BuscarPorId(int Id)
         {
-            return await _cleanDBContext.Equipamentos.FirstOrDefaultAsync(a => a.Id == Id);
+            return await _cleanDBContext.equipamento.FirstOrDefaultAsync(a => a.equipamento_id == Id);
         }
 
         public async Task<List<EquipamentoModel>> BuscarTodosEquipamentos()
         {
-            return await _cleanDBContext.Equipamentos.ToListAsync();
+            return await _cleanDBContext.equipamento.ToListAsync();
         }
 
         public async Task<EquipamentoModel?> Cadastrar(EquipamentoModel equipamento)
         {
-            await _cleanDBContext.Equipamentos.AddAsync(equipamento);
+            await _cleanDBContext.equipamento.AddAsync(equipamento);
             await _cleanDBContext.SaveChangesAsync();
 
             return equipamento;
@@ -64,7 +64,7 @@ namespace CleanHosp_API.Repositorio.Repositorio.Equipamento
                 throw new Exception($"Equipamento para o Id: {Id} não encontrado!");
             }
 
-            _cleanDBContext.Remove(equipamentoCadastrado.Id);
+            _cleanDBContext.Remove(equipamentoCadastrado.equipamento_id);
             await _cleanDBContext.SaveChangesAsync();
 
             return true;

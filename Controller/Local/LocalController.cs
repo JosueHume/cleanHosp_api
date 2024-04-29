@@ -10,6 +10,11 @@ namespace CleanHosp_API.Controller.Local
     {
         private readonly ILocalInterface _localInterface;
 
+        public LocalController(ILocalInterface localInterface)
+        {
+            _localInterface = localInterface;
+        }
+
         [HttpGet]
         public ActionResult<List<LocalModel>> GetLocais()
         {
@@ -33,7 +38,7 @@ namespace CleanHosp_API.Controller.Local
         [HttpPut("{Id}")]
         public async Task<ActionResult<LocalModel>> Atualizar([FromBody] LocalModel localModel, int Id)
         {
-            localModel.Id = Id;
+            localModel.local_id = Id;
             LocalModel? local = await _localInterface.Atualizar(localModel, Id);
             return Ok(local);
         }

@@ -1,4 +1,4 @@
-﻿using CleanHosp_API.Model.LocalLimpeza;
+﻿using CleanHosp_API.Model.Local;
 
 namespace CleanHosp_API.Repositorio.Interface.Local
 {
