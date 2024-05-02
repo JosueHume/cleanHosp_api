@@ -44,6 +44,17 @@ namespace CleanHosp_API
             builder.Services.AddScoped<IProdutoInterface, ProdutoRepositorio>();
             builder.Services.AddScoped<IProdutoUtilizadoInterface, ProdutoUtilizadoRepositorio>();
 
+            builder.Services.AddCors(options => {
+                options.AddDefaultPolicy(
+                  policy => {
+                      policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .WithExposedHeaders("Content-Type");
+                  }
+                );
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -53,10 +64,11 @@ namespace CleanHosp_API
                 app.UseSwaggerUI();
             }
 
+            app.UseCors();
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

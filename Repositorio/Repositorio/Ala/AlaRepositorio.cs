@@ -58,7 +58,7 @@ namespace CleanHosp_API.Repositorio.Repositorio.Ala
                 throw new Exception($"Ala para o Id: {Id} não encontrado!");
             }
 
-            _cleanDBContext.Remove(alaCadastrada.ala_id);
+            _cleanDBContext.Remove(alaCadastrada);
             await _cleanDBContext.SaveChangesAsync();
 
             return true;
